@@ -1,113 +1,55 @@
 import Image from "next/image";
+import avatar from "@/public/avatar.jpeg"
+import {Text} from "@radix-ui/themes"
+import ArticleListCard from "@/components/article-list-card"
+import ShowSocialIcon from "@/components/show-social-icon";
+
+const articles = [
+    {
+        title: "中国社会各阶级的分析",
+        summary: "毛泽东此文是为反对当时党内存在着的两种倾向而写的。当时党内的第一种倾向，以陈独秀为代表，只注意同国民党合作，忘记了农民，这是右倾机会主义。第二种倾向，以张国焘为代表，只注意工人运动，同样忘记了农民，这是“左”倾机会主义。这两种机会主义都感觉自己力量不足，而不知道到何处去寻找力量，到何处去取得广大的同盟军。毛泽东指出中国无产阶级的最广大和最忠实的同盟军是农民，这样就解决了中国革命中的最主要的同盟军问题。毛泽东并且预见到当时的民族资产阶级是一个动摇的阶级，他们在革命高涨时将要分化，其右翼将要跑到帝国主义方面去。一九二七年所发生的事变，证明了这一点。",
+        tags: ["毛泽东", "第一次国内革命战争时期"],
+    },
+    {
+        title: "湖南农民运动考察报告",
+        summary: "毛泽东此文是为了答复当时党内党外对于农民革命斗争的责难而写的。为了这个目的，毛泽东到湖南做了三十二天的考察工作，并写了这一篇报告。当时党内以陈独秀为首的右倾机会主义者，不愿意接受毛泽东的意见，而坚持自己的错误见解。他们的错误，主要是被国民党的反动潮流所吓倒，不敢支持已经起来和正在起来的伟大的农民革命斗争。为了迁就国民党，他们宁愿抛弃农民这个最主要的同盟军，使工人阶级和共产党处于孤立无援的地位。一九二七年春夏国民党之所以敢于叛变，发动“清党运动”和反人民的战争，主要就是乘了共产党的这个弱点。",
+        tags: ["毛泽东", "第一次国内革命战争时期"],
+    },
+    {
+        title: "中国的红色政权为什么能够存在？",
+        summary: "这是毛泽东为中共湘赣边界第二次代表大会写的决议的一部分，原题为《政治问题和边界党的任务》。",
+        tags: ["毛泽东", "第一次国内革命战争时期"],
+    },
+    {title: "井冈山的斗争", summary: "这是毛泽东写给中共中央的报告", tags: ["毛泽东", "第一次国内革命战争时期"]},
+    {
+        title: "关于纠正党内的错误思想",
+        summary: "这是毛泽东为中国共产党红军第四军第九次代表大会写的决议的第一部分。中国人民军队的建设，是经过了艰难的道路的。中国红军（抗日时期是八路军、新四军，现在是人民解放军）从一九二七年八月一日南昌起义创始，到一九二九年十二月，经过了两年多的时间。在这个时期内，红军中的共产党和各种错误思想作斗争，学到了许多东西，积累了相当丰富的经验。毛泽东写的这个决议，就是这些经验的总结。这个决议使红军肃清旧式军队的影响，完全建立在马克思列宁主义的基础上。这个决议不但在红军第四军实行了，后来各部分红军都先后不等地照此做了，这样就使整个中国红军完全成为真正的人民军队。中国人民军队中的党的工作和政治工作，以后有广大的发展和创造，现在的面貌和过去大不相同了，但是基本的路线还是继承了这个决议的路线",
+        tags: ["毛泽东", "第一次国内革命战争时期"],
+    },
+    {
+        title: "星星之火，可以燎原",
+        summary: "这是毛泽东给林彪的一封信，是为答复林彪散发的一封对红军前途究竟应该如何估计的征求意见的信。毛泽东在这封信中批评了当时林彪以及党内一些同志对时局估量的一种悲观思想。一九四八年林彪向中央提出，希望公开刊行这封信时不要提他的姓名。毛泽东同意了这个意见。在收入本书第一版的时候，这封信改题为《星星之火，可以燎原》，指名批评林彪的地方作了删改",
+        tags: [],
+    },
+]
 
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    return (
+        <div className="md:w-3/4 lg:w-3/5 bg-white shadow-lg lg:mt-20">
+            <div className={"flex flex-col lg:flex-row lg:justify-between items-center lg:pt-20 lg:px-10 xl:px-[7.5rem] pt-10"}>
+                <div className={"mb-4"}>
+                    <Image alt={"avatar"} src={avatar} className={"size-24"}/>
+                </div>
+                <div>
+                    <Text color={"gray"} size={"2"}>我们需要的是热烈而镇定的情绪，紧张而有秩序的工作</Text>
+                    <ShowSocialIcon />
+                </div>
+            </div>
+            {/*首页文章列表*/}
+            <div className={"divide-y lg:py-20 xl:mx-20 xl:py-20"}>
+                {articles.map((article, index) => <ArticleListCard key={index} heading={article.title}
+                                                                   summary={article.summary} tags={article.tags}/>)}
+            </div>
         </div>
-      </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+    );
 }
