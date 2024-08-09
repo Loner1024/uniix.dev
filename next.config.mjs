@@ -1,4 +1,5 @@
 import * as NextMdx from '@next/mdx'
+import * as NextBundleAnalyzer from '@next/bundle-analyzer'
 
 const withMDX = NextMdx.default({
     extension: /\.mdx?$/,
@@ -23,4 +24,8 @@ const nextConfig = {
     },
 };
 
-export default withMDX(nextConfig)
+const withBundleAnalyzer = NextBundleAnalyzer.default({
+    enabled: process.env.ANALYZE === 'true',
+})
+
+export default withBundleAnalyzer(withMDX(nextConfig))
