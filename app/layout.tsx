@@ -6,8 +6,7 @@ import Footer from "@/components/footer";
 import Image from "next/image";
 import avatar from "@/public/avatar.jpeg";
 import ShowSocialIcon from "@/components/show-social-icon";
-// @ts-ignore
-// import {Heti} from "heti/js/heti-addon"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -43,6 +42,7 @@ export default function RootLayout({
                 </div>
             </div>
             <Footer/>
+            <SpeedInsights/>
         </Theme>
         </body>
         </html>
