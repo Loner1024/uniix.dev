@@ -18,14 +18,12 @@ export default function RootLayout({
                                    }: Readonly<{
     children: React.ReactNode;
 }>) {
-    // const heti = new Heti('.heti');
-    // heti.autoSpacing(); // 自动进行中西文混排美化和标点挤压
     return (
         <html lang="en">
         <body>
         <Theme>
             <div className={"flex justify-center bg-[#f7f7f7]"}>
-                <div className="md:w-3/4 lg:w-3/5 bg-white shadow-lg lg:mt-20">
+                <div className="w-screen md:w-3/4 lg:w-3/5 bg-white shadow-lg lg:mt-20">
                     <div
                         className={"flex flex-col lg:flex-row lg:justify-between items-center lg:pt-20 lg:px-10 xl:px-[7.5rem] pt-10"}>
                         <div className={"mb-4"}>

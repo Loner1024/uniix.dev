@@ -16,8 +16,8 @@ const options = {
 const Page = async ({params}: { params: {slug: string} }) => {
     const {metadata, content} = getPostBySlug(params.slug)
     return (
-        <article className={"prose lg:prose-2xl p-10"}>
-            <div className={"flex flex-col items-start justify-center mb-10 gap-4 font-"}>
+        <article className={"max-w-none prose prose-sm p-10 text-wrap lg:prose-base"}>
+            <div className={"flex flex-col items-start justify-center mb-10 gap-4"}>
                 <Heading size={"8"}>{metadata.title}</Heading>
                 <Text>{metadata.date}</Text>
                 <Text>{metadata.tags.join(",")}</Text>
