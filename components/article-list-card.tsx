@@ -9,7 +9,7 @@ const ArticleListCard = ({heading, summary, tags, slug}: {
     slug: string
 }) => {
     return (
-        <Link href={"/posts/" + slug}>
+        <Link prefetch={false} href={"/posts/" + slug}>
             <div className={"hover:bg-[#f7f7f7] p-10 hover:cursor-pointer transition hover:rounded-lg"}>
                 <div className={"pb-6"}>
                     <Text size={"1"} color={"gray"}>{tags.length > 0 ? "#" : null}{tags.join("   #")}</Text>
