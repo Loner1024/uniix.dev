@@ -7,6 +7,7 @@ import Image from "next/image";
 import avatar from "@/public/avatar.jpeg";
 import ShowSocialIcon from "@/components/show-social-icon";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import Link from "next/link";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -26,9 +27,9 @@ export default function RootLayout({
                 <div className="w-screen md:w-3/4 lg:w-3/5 bg-white shadow-lg lg:mt-20">
                     <div
                         className={"flex flex-col lg:flex-row lg:justify-between items-center lg:pt-20 lg:px-10 xl:px-[7.5rem] pt-10"}>
-                        <div className={"mb-4"}>
-                            <Image alt={"avatar"} src={avatar} className={"size-24"}/>
-                        </div>
+                            <Link className={"mb-4"} href={"/"}>
+                                <Image  alt={"avatar"} src={avatar} className={"size-24"}/>
+                            </Link>
                         <div>
                             <Text color={"gray"} size={"2"}>我们需要的是热烈而镇定的情绪，紧张而有秩序的工作</Text>
                             <ShowSocialIcon/>
