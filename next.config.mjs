@@ -1,10 +1,21 @@
+import * as NextMdx from '@next/mdx'
+
+const withMDX = NextMdx.default({
+    extension: /\.mdx?$/,
+});
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    // output: 'export',
+    pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+    experimental: {
+        mdxRs: true,
+    },
     images: {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'images.unsplash.com',
+                hostname: '*.hdslb.com',
                 port: '',
                 pathname: '**',
             },
@@ -12,4 +23,4 @@ const nextConfig = {
     },
 };
 
-export default nextConfig;
+export default withMDX(nextConfig)

@@ -1,8 +1,11 @@
 import type {Metadata} from "next";
 import "./globals.css";
-import {Theme} from '@radix-ui/themes';
+import {Text, Theme} from '@radix-ui/themes';
 import React from "react";
 import Footer from "@/components/footer";
+import Image from "next/image";
+import avatar from "@/public/avatar.jpeg";
+import ShowSocialIcon from "@/components/show-social-icon";
 // @ts-ignore
 // import {Heti} from "heti/js/heti-addon"
 
@@ -23,7 +26,21 @@ export default function RootLayout({
         <body>
         <Theme>
             <div className={"flex justify-center bg-[#f7f7f7]"}>
-                {children}
+                <div className="md:w-3/4 lg:w-3/5 bg-white shadow-lg lg:mt-20">
+                    <div
+                        className={"flex flex-col lg:flex-row lg:justify-between items-center lg:pt-20 lg:px-10 xl:px-[7.5rem] pt-10"}>
+                        <div className={"mb-4"}>
+                            <Image alt={"avatar"} src={avatar} className={"size-24"}/>
+                        </div>
+                        <div>
+                            <Text color={"gray"} size={"2"}>我们需要的是热烈而镇定的情绪，紧张而有秩序的工作</Text>
+                            <ShowSocialIcon/>
+                        </div>
+                    </div>
+                    <div className={"lg:py-20 xl:mx-20 xl:py-20"}>
+                        {children}
+                    </div>
+                </div>
             </div>
             <Footer/>
         </Theme>
