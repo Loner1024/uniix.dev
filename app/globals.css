@@ -1,14 +1,7 @@
-/*@tailwind base;*/
 @import "tailwindcss/base";
-
 @import "@radix-ui/themes/styles.css";
-/*@import "//unpkg.com/heti/umd/heti.min.css";*/
-@import "//chinese-fonts-cdn.deno.dev/packages/lxgwwenkai/dist/LXGWWenKai-Bold/result.css";
+@import "//blog-1255746465.cos.ap-guangzhou.myqcloud.com/LXGWWenKai-Bold/result.css";
 @import '../public/css/code-style.css';
-
-img {
-    position: relative;
-}
 
 @tailwind components;
 @tailwind utilities;
