@@ -2,11 +2,12 @@ import React from 'react';
 import {Heading, Text} from "@radix-ui/themes";
 import Link from "next/link";
 
-const ArticleListCard = ({heading, summary, tags, slug}: {
+const ArticleListCard = ({heading, summary, tags, slug, date}: {
     heading: string,
     summary: string,
     tags: string[],
-    slug: string
+    slug: string,
+    date: Date,
 }) => {
     return (
         <Link prefetch={false} href={"/posts/" + slug}>
@@ -19,7 +20,7 @@ const ArticleListCard = ({heading, summary, tags, slug}: {
                     <Text wrap={"pretty"} color={"gray"}
                           className={"heti"}>{summary.length > 180 ? summary.slice(0, 180) + '......' : summary}</Text>
                 </div>
-                <Text size={"1"} color={"gray"}>2024-08-06</Text>
+                <Text size={"1"} color={"gray"}>{date.toLocaleDateString("zh-cn")}</Text>
             </div>
         </Link>
     );

@@ -8,7 +8,11 @@ export default function Home() {
         <div className={"divide-y"}>
             {allMetadata.map((article, index) => <ArticleListCard slug={article.slug} key={index}
                                                                   heading={article.title}
-                                                                  summary={article.summary} tags={article.tags}/>)}
+                                                                  summary={article.summary}
+                                                                  tags={article.tags}
+                                                                  date={article.date}
+                />
+            )}
         </div>
     )
         ;

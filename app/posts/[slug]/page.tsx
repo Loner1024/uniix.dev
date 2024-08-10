@@ -19,7 +19,7 @@ const Page = async ({params}: { params: {slug: string} }) => {
         <article className={"max-w-none prose prose-sm p-10 text-wrap lg:prose-base"}>
             <div className={"flex flex-col items-start justify-center mb-10 gap-4"}>
                 <Heading size={"8"}>{metadata.title}</Heading>
-                <Text>{metadata.date}</Text>
+                <Text>{metadata.date.toLocaleDateString("zh-cn")}</Text>
                 <Text>{metadata.tags.join(",")}</Text>
             </div>
             <div className={"w-full"}>

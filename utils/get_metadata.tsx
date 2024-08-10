@@ -7,7 +7,7 @@ const postsDirectory = path.join(process.cwd(), '/posts');
 export interface Metadata {
     title: string;
     summary: string;
-    date: string;
+    date: Date;
     slug: string
     tags: string[];
 }
@@ -30,11 +30,18 @@ export function getPostBySlug(slug: string) {
 export function getAllPostsMetadata() {
     const slugs = getPostSlugs();
 
-    return slugs.map(slug => {
+    const allMetadata = slugs.map(slug => {
         const { metadata } = getPostBySlug(slug.replace(/\.mdx$/, ''));
         metadata.slug = slug.replace(/\.mdx$/, '');
         return {
             ...metadata,
         };
     });
+    allMetadata.sort((a, b) => {
+        const dateA = a.date;
+        const dateB = b.date;
+        return dateA > dateB ? -1 : 1
+    });
+
+    return allMetadata
 }
