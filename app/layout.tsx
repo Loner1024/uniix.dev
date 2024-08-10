@@ -30,7 +30,7 @@ export default function RootLayout({
                         <div
                             className={"flex flex-col lg:flex-row lg:justify-between items-center lg:pt-20 lg:px-10 xl:px-[7.5rem] pt-10"}>
                             <Link className={"mb-4"} href={"/"}>
-                                <Image  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" alt={"avatar"} src={avatar} className={"size-24"}/>
+                                <Image sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" alt={"avatar"} src={avatar} className={"size-24"}/>
                             </Link>
                             <div>
                                 <Cover>
