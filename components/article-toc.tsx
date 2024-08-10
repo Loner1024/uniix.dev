@@ -2,6 +2,7 @@
 import React, {useEffect, useState} from 'react';
 import {Text} from "@radix-ui/themes";
 import {usePathname} from "next/navigation";
+import Link from "next/link";
 
 interface TOCItem {
     id: string;
@@ -35,7 +36,7 @@ const ArticleToc = () => {
             <ul>
                 {toc.map((heading) => (
                     <li key={heading.id} style={{marginLeft: `${heading.level - 1}em`}}>
-                        <a href={`#${heading.id}`}>{heading.title}</a>
+                        <Link href={`#${heading.id}`}>{heading.title}</Link>
                     </li>
                 ))}
             </ul>
