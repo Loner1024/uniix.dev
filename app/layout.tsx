@@ -8,8 +8,6 @@ import avatar from "@/public/avatar.jpeg";
 import ShowSocialIcon from "@/components/show-social-icon";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import Link from "next/link";
-import ArticleToc from "@/components/article-toc";
-import {usePathname} from "next/navigation";
 import {Cover} from "@/components/ui/cover";
 
 export const metadata: Metadata = {
