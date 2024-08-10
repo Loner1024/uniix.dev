@@ -5,27 +5,34 @@ import {MDXRemote} from "next-mdx-remote/rsc";
 import {customMDXComponents} from "@/components/mdx-components";
 import remarkGfm from "remark-gfm";
 import rehypePrismAll from "rehype-prism-plus";
+import rehypeSlug from "rehype-slug";
+import ArticleToc from "@/components/article-toc";
 
 const options = {
     mdxOptions: {
         remarkPlugins: [remarkGfm],
-        rehypePlugins: [rehypePrismAll],
+        rehypePlugins: [rehypePrismAll, rehypeSlug],
     }
 }
 
 const Page = async ({params}: { params: {slug: string} }) => {
     const {metadata, content} = getPostBySlug(params.slug)
     return (
-        <article className={"max-w-none prose prose-sm p-10 text-wrap lg:prose-base"}>
-            <div className={"flex flex-col items-start justify-center mb-10 gap-4"}>
-                <Heading size={"8"}>{metadata.title}</Heading>
-                <Text>{metadata.date.toLocaleDateString("zh-cn")}</Text>
-                <Text>{metadata.tags.join(",")}</Text>
-            </div>
-            <div className={"w-full"}>
-                <MDXRemote source={content} components={customMDXComponents()} options={options} />
-            </div>
-        </article>
+        <div>
+            <article className={"max-w-none prose prose-sm p-10 text-wrap lg:prose-base"}>
+                <div className={"flex flex-col items-start justify-center mb-10 gap-4"}>
+                    <Heading size={"8"}>{metadata.title}</Heading>
+                    <Text>{metadata.date.toLocaleDateString("zh-cn")}</Text>
+                    <Text>{metadata.tags.join(",")}</Text>
+                </div>
+                <div className={"w-full"}>
+                    <MDXRemote source={content} components={customMDXComponents()} options={options}/>
+                </div>
+            </article>
+                <div className="fixed w-64 hidden lg:block top-20 xl:right-[-3rem] 2xl:right-[1.5rem] lg:right-[-4.5rem]">
+                    <ArticleToc/>
+                </div>
+        </div>
     );
 };
 
