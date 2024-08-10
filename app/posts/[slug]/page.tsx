@@ -1,6 +1,6 @@
 import React from 'react';
 import {Heading, Text} from "@radix-ui/themes";
-import {getAllPostsMetadata, getPostBySlug, Metadata} from "@/utils/get_metadata";
+import {getAllPostsMetadata, getPostBySlug, Metadata} from "@/lib/get_metadata";
 import {MDXRemote} from "next-mdx-remote/rsc";
 import {customMDXComponents} from "@/components/mdx-components";
 import remarkGfm from "remark-gfm";

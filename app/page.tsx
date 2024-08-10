@@ -1,5 +1,5 @@
 import ArticleListCard from "@/components/article-list-card"
-import {getAllPostsMetadata} from "@/utils/get_metadata";
+import {getAllPostsMetadata} from "@/lib/get_metadata";
 
 export default function Home() {
     const allMetadata = getAllPostsMetadata();

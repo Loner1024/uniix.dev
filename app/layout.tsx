@@ -10,6 +10,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import Link from "next/link";
 import ArticleToc from "@/components/article-toc";
 import {usePathname} from "next/navigation";
+import {Cover} from "@/components/ui/cover";
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -34,7 +35,9 @@ export default function RootLayout({
                                 <Image alt={"avatar"} src={avatar} className={"size-24"}/>
                             </Link>
                             <div>
-                                <Text color={"gray"} size={"2"}>我们需要的是热烈而镇定的情绪，紧张而有秩序的工作</Text>
+                                <Cover>
+                                    <Text size={"2"}>我们需要的是热烈而镇定的情绪，紧张而有秩序的工作</Text>
+                                </Cover>
                                 <ShowSocialIcon/>
                             </div>
                         </div>
