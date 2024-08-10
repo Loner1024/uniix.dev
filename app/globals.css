@@ -1,6 +1,6 @@
 @import "tailwindcss/base";
 @import "@radix-ui/themes/styles.css";
-@import "//blog-1255746465.cos.ap-guangzhou.myqcloud.com/LXGWWenKai-Bold/result.css";
+@import "//blog-oss.uniix.dev/LXGWWenKai-Bold/result.css";
 @import '../public/css/code-style.css';
 
 @tailwind components;
