@@ -7,6 +7,7 @@ import Image from "next/image";
 import avatar from "@/public/avatar.avif";
 import ShowSocialIcon from "@/components/show-social-icon";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import {GoogleAnalytics} from '@next/third-parties/google'
 import Link from "next/link";
 import {Cover} from "@/components/ui/cover";
 
@@ -49,6 +50,7 @@ export default function RootLayout({
             <SpeedInsights/>
         </Theme>
         </body>
+        <GoogleAnalytics gaId="G-3FZWHM8W5R"/>
         </html>
     );
 }
