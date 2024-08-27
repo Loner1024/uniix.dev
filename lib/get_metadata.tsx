@@ -14,12 +14,12 @@ export interface Metadata {
 
 // 获取所有的 MDX 文件的文件名
 export function getPostSlugs() {
-    return fs.readdirSync(postsDirectory).filter(file => file.endsWith('.mdx'));
+    return fs.readdirSync(postsDirectory).filter(file => file.endsWith('.mdx') || file.endsWith("md"));
 }
 
 // 根据 slug 获取指定 MDX 文件的内容及 metadata
 export function getPostBySlug(slug: string) {
-    const fullPath = path.join(postsDirectory, `${slug}.mdx`);
+    const fullPath = path.join(postsDirectory, `${slug}`);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
 
     const { data , content } = matter(fileContents);
@@ -31,8 +31,8 @@ export function getAllPostsMetadata() {
     const slugs = getPostSlugs();
 
     const allMetadata = slugs.map(slug => {
-        const { metadata } = getPostBySlug(slug.replace(/\.mdx$/, ''));
-        metadata.slug = slug.replace(/\.mdx$/, '');
+        const { metadata } = getPostBySlug(slug);
+        metadata.slug = slug
         return {
             ...metadata,
         };
