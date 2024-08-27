@@ -40,7 +40,7 @@ export async function generateStaticParams() {
     const allMetadata = getAllPostsMetadata();
     return allMetadata.map(metadata => (
         {
-            slug: metadata.slug.replace(/\.mdx$/, ''),
+            slug: metadata.slug,
         }
     ))
 }
