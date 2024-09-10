@@ -7,6 +7,7 @@ import remarkGfm from "remark-gfm";
 import rehypePrismAll from "rehype-prism-plus";
 import rehypeSlug from "rehype-slug";
 import ArticleToc from "@/components/article-toc";
+import type { Metadata as NextMetadata } from 'next'
 
 const options = {
     mdxOptions: {
@@ -43,6 +44,14 @@ export async function generateStaticParams() {
             slug: metadata.slug,
         }
     ))
+}
+
+export async function generateMetadata({params}: { params: {slug: string} }): Promise<NextMetadata> {
+    const {metadata} = getPostBySlug(params.slug)
+    return {
+        title: metadata.title,
+        description: metadata.summary,
+    }
 }
 
 export default Page;
